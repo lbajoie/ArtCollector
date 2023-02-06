@@ -13,8 +13,8 @@ const Preview = (props) => {
    * 
    * You need info, records, setSearchResults, setFeaturedResult, and setIsLoading as available constants
    */
-
-
+  const { searchResults, setSearchResults, setFeaturedResult, setIsLoading } = props;
+  const { info, records } = searchResults;
   /**
    * Don't touch this function, it's good to go.
    * 
@@ -37,14 +37,14 @@ const Preview = (props) => {
     <header className="pagination">
       {/* This button should be disabled if nothing is set in info.prev, and should call fetchPage with info.prev when clicked */}
       <button 
-        disabled={} 
+        disabled={ ''} 
         className="previous"
-        onClick={}>Previous</button>
+        onClick={ ''}>Previous</button>
       {/* This button should be disabled if nothing is set in info.next, and should call fetchPage with info.next when clicked */}
       <button
-        disabled={}
+        disabled={ ''}
         className="next"
-        onClick={}>Next</button>
+        onClick={''}>Next</button>
     </header>
     <section className="results">
       {

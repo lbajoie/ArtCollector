@@ -12,7 +12,9 @@ import {
 const Search = (props) => {
   // Make sure to destructure setIsLoading and setSearchResults from the props
 
+const props = ({setIsLoading, setSearchResults}) ;
 
+const [centuryList, setCenturyList] = useState;
   /**
    * We are at the Search component, a child of app. This has a form, so we need to use useState for
    * our controlled inputs:
@@ -33,7 +35,10 @@ const Search = (props) => {
    * Make sure to console.error on caught errors from the API methods.
    */
   useEffect(() => {
-
+    Promise.all([fetchAllCenturies,fetchAllClassifications]).then(([centuries, classifications]) => {
+      setCentury(centuries);
+      setClassification(classifications);
+    }).catch(console.error)
   }, []);
 
   /**
@@ -61,8 +66,8 @@ const Search = (props) => {
         id="keywords" 
         type="text" 
         placeholder="enter keywords..." 
-        value={/* this should be the query string */} 
-        onChange={/* this should update the value of the query string */}/>
+        value={query} 
+        onChange={(event) => setCenturyList(event.target.value)}/>
     </fieldset>
     <fieldset>
       <label htmlFor="select-classification">Classification <span className="classification-count">({ classificationList.length })</span></label>
